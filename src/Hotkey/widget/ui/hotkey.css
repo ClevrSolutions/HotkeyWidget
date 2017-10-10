@@ -1,0 +1,160 @@
+@media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+}
+@media (max-width: 767px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+}
+@media (max-width: 767px) {
+}
+@media (max-width: 767px) {
+}
+.hotkey {
+  /*[disabled]+placement:anchor-bottom-left 10px 0px;*/
+  z-index: 10000;
+}
+.hotkeyList {
+  width: 40px;
+  max-height: 0;
+  border-left: 1px solid #887C7C;
+  border-right: 1px solid #887C7C;
+  background: #F4F0F0;
+  transition: all 1s ease 0.5s;
+  overflow: hidden;
+}
+.hotkeyCellKey {
+  text-align: right;
+}
+.hotkeyList TABLE {
+  width: 600px;
+  border-top: 1px solid #887C7C;
+}
+.hotkeyRowHeader {
+  background: #F4F0F0;
+}
+.hotkeyCellHeader {
+  padding: 4px;
+}
+.hotkeyHeader {
+  font-weight: bold;
+  font-size: 10pt;
+}
+.hotkeyRowEven {
+  background: #CDC1C1;
+}
+.hotkeyRowOdd {
+  background: #E3D6D6;
+}
+.hotkeyDescription {
+  display: block;
+  font-style: italic;
+}
+.hotkeyCellName,
+.hotkeyCellKey {
+  padding: 4px;
+}
+.hotkeyName {
+  font-weight: bold;
+}
+.hotkeyCellName {
+  text-align: left;
+}
+/**
+ * KEYS.css
+ *
+ * A simple stylesheet for rendering beautiful keyboard-style elements.
+ *
+ * Author:  Michael Hüneburg
+ * Website: http://michaelhue.com/keyscss
+ * License: MIT License (see LICENSE.txt)
+ */
+/* customized by G.Holz */
+/* Base style, essential for every key. */
+kbd,
+.key {
+  display: inline;
+  display: inline-block;
+  min-width: 1em;
+  padding: .2em .3em;
+  font: normal 0.85em/1 "Lucida Grande", Lucida, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  border-radius: .3em;
+  border: none;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+/*kbd[title], .key[title] {
+	cursor: help;
+}*/
+/* Dark style for display on light background. This is the default style. */
+kbd,
+kbd.dark,
+.dark-keys kbd,
+.key,
+.key.dark,
+.dark-keys .key {
+  background-image: -webkit-linear-gradient(top, #3c3c3c 0%, #505050 100%);
+  background-image: linear-gradient(to bottom, #3c3c3c 0%, #505050 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff505050', GradientType=0);
+  /*	background: rgb(80, 80, 80);
+	background: -moz-linear-gradient(rgb(60, 60, 60), rgb(80, 80, 80));
+    background: -o-linear-gradient(rgb(60, 60, 60), rgb(80, 80, 80));
+    background: linear-gradient(rgb(60, 60, 60), rgb(80, 80, 80));
+	background: -webkit-linear-gradient(rgb(60, 60, 60), rgb(80, 80, 80));*/
+  color: #fafafa;
+  text-shadow: -1px -1px 0 #464646;
+  -webkit-box-shadow: 0 0 1px #969696;
+  box-shadow: 0 0 1px #969696;
+  -webkit-box-shadow: 0 -0.05em 0.4em #505050;
+  box-shadow: 0 -0.05em 0.4em #505050;
+  -webkit-box-shadow: 0 0.1em 0 #1e1e1e;
+  box-shadow: 0 0.1em 0 #1e1e1e;
+  -webkit-box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.3);
+  /*
+	-moz-box-shadow: inset 0 0 1px rgb(150, 150, 150), inset 0 -.05em .4em rgb(80, 80, 80), 0 .1em 0 rgb(30, 30, 30), 0 .1em .1em rgba(0, 0, 0, .3);
+	-webkit-box-shadow: inset 0 0 1px rgb(150, 150, 150), inset 0 -.05em .4em rgb(80, 80, 80), 0 .1em 0 rgb(30, 30, 30), 0 .1em .1em rgba(0, 0, 0, .3);
+	box-shadow: inset 0 0 1px rgb(150, 150, 150), inset 0 -.05em .4em rgb(80, 80, 80), 0 .1em 0 rgb(30, 30, 30), 0 .1em .1em rgba(0, 0, 0, .3);
+*/
+}
+/* Light style for display on dark background. */
+kbd.light,
+.light-keys kbd,
+.key.light,
+.light-keys .key {
+  background-image: -webkit-linear-gradient(top, #d2d2d2 0%, #ffffff 100%);
+  background-image: linear-gradient(to bottom, #d2d2d2 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd2d2d2', endColorstr='#ffffffff', GradientType=0);
+  /*	background: rgb(250, 250, 250);
+	background: -moz-linear-gradient(top, rgb(210, 210, 210), rgb(255, 255, 255));
+	background: -webkit-gradient(linear, left top, left bottom, from(rgb(210, 210, 210)), to(rgb(255, 255, 255)));*/
+  color: #323232;
+  text-shadow: 0 0 2px #ffffff;
+  -webkit-box-shadow: 0 0 1px #ffffff;
+  box-shadow: 0 0 1px #ffffff;
+  -webkit-box-shadow: 0 0 0.4em #c8c8c8;
+  box-shadow: 0 0 0.4em #c8c8c8;
+  -webkit-box-shadow: 0 0.1em 0 #828282;
+  box-shadow: 0 0.1em 0 #828282;
+  -webkit-box-shadow: 0 0.11em 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.11em 0 rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0.1em 0.11em rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0.1em 0.11em rgba(0, 0, 0, 0.9);
+  /*
+	-moz-box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4), 0 .1em .11em rgba(0, 0, 0, .9);
+	-webkit-box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4), 0 .1em .11em rgba(0, 0, 0, .9);
+	box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4), 0 .1em .11em rgba(0, 0, 0, .9);
+*/
+}

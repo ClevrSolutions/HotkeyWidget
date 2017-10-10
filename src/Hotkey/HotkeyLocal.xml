@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="Hotkey.widget.HotkeyLocal" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>Hotkey (local)</name>
+    <description>The Hotkey Widget allows to define hotkeys (i.e. keyboard shortcuts) for your application.
+        This is the local widget which allows you to define form specific hotkeys. The hotkeys you define here are only active for this form.
+    </description>
+    
+    <icon>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAAkxJREFUeJylkr9LXEEQx78zu/vWtxfvkDv1eCjCGQLX2EkEGzkhlcEulZX/huZvSJE/I9ikswyIIDkF
+        K5sTBMXKA33KvfW5P1IkJ5eLBEKmGb7szJfP7Azwn0Fjurq3t/dleXn5bVEUCCHAGAMpJe7v793W1tZ2t9v9OtrAo2J+fv5NlmXvms1mLcuy2szMTE1rXRNC1LIsq3c6nQ/jBHJUxBjZe+8eHh5k
+        WZYgIjjnUJYlmHm8908CADFNU1xeXmJ/fx9SSsQYEUKAcw7MHP9K4JyLWmtkWQYiQowRzAwpJbTWL1L8ZjA9Pf04GAzAzFhYWAAzI01ThBCgtYa11o8b0Orq6sru7u42EXGe541Wq/XeGMMxRiil
+        oJSCEAJSSpycnPTu7u6+GWMoz3O3s7PzWW5sbHxaX19fiTHCOQdrLUIIEEKg2+26oijE2toaMTOWlpZe397evm61WlBKodfrVaWUMi2KAkIIeO9hrUVZlhBCgJlDjJGdcySlRJ7nOD8/hxACs7Oz
+        MMa8Ymb2g8EAR0dHODw8xNPTE2KMsNaCmYdG6Pf76Pf7mJiYwOnpKbz3ICLP1WoVV1dXODg4wNnZ2c+PIQIzQykFYwyMMfDe4/r6GhcXF5icnAQRgYggmRntdhuLi4uQUg4PCkPkX+tFs9lEp9OB
+        cw7GGFQqFSRJAjk1NVXx3iNJEiRJAqXU84oajUailIK1Flpr1Ot1CCGe340xKW1ubn6cm5trhxDCcN5hvrm5eSQiTtNUAYAQAiM1fHx8/P3F+/6X+AFZwudouvrlDgAAAABJRU5ErkJggg==
+    </icon>
+    
+    <properties>
+        <property key="hotkeyLocalCategory" type="translatableString" required="true">
+            <caption>Local hotkey category</caption>
+            <category>Hotkey definitions</category>
+            <description>Name the category for your local hotkeys. This name will be shown as heading in the graphical hotkey list.</description>
+        </property>
+        <property key="hotkeyList" type="object" isList="true" isDefault="true" required="false">
+            <caption>Hotkeys</caption>
+            <category>Hotkey definitions</category>
+            <description>Define the hotkeys and actions.</description>
+            <properties>
+                <property key="hotkeyName" type="translatableString" required="true">
+                    <caption>Name</caption>
+                    <category>Common</category>
+                    <description>Name your hotkey.</description>
+                </property>
+                <property key="hotkeyDescription" type="translatableString" required="true" multiline="true">
+                    <caption>Description</caption>
+                    <category>Common</category>
+                    <description>Describe your hotkey.</description>
+                </property>
+                <property key="allowModal" type="boolean" required="true" defaultValue="false">
+                    <caption>Allow modal</caption>
+                    <category>Settings</category>
+                    <description>Allow triggering of this hotkey when modal dialog is open.
+                        This option is only taken into account for action types "Trigger microflow" and "Mendix action".</description>
+                </property>
+                <property key="showDocumentation" type="boolean" required="true" defaultValue="true">
+                    <caption>Show documentation</caption>
+                    <category>Settings</category>
+                    <description>Show the documentation for this hotkey in the GUI.</description>
+                </property>
+                <property key="metaKey" type="enumeration" required="true" defaultValue="NONE">
+                    <caption>Meta-Key</caption>
+                    <category>Key combination</category>
+                    <description>Define the meta-key(s) (ctrl, alt, ...). Keep in mind that SHIFT should only be used in combination with alphabetic characters.</description>
+                    <enumerationValues>
+                        <enumerationValue key="NONE">none</enumerationValue>
+                        <enumerationValue key="CTRL">CTRL</enumerationValue>
+                        <enumerationValue key="ALT">ALT</enumerationValue>
+                        <enumerationValue key="SHIFT">SHIFT</enumerationValue>
+                        <enumerationValue key="META">META</enumerationValue>
+                        <enumerationValue key="CTRL_ALT">CTRL + ALT</enumerationValue>
+                        <enumerationValue key="CTRL_SHIFT">CTRL + SHIFT</enumerationValue>
+                        <enumerationValue key="CTRL_META">CTRL + META</enumerationValue>
+                        <enumerationValue key="ALT_SHIFT">ALT + SHIFT</enumerationValue>
+                        <enumerationValue key="ALT_META">ALT + META</enumerationValue>
+                        <enumerationValue key="SHIFT_META">SHIFT + META</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="plainKey" type="enumeration" required="true" defaultValue="_65">
+                    <caption>Key</caption>
+                    <category>Key combination</category>
+                    <description>Define the plain key (A, B, F10, ...).</description>
+                    <enumerationValues>
+                        <enumerationValue key="_48">0</enumerationValue>
+                        <enumerationValue key="_49">1</enumerationValue>
+                        <enumerationValue key="_50">2</enumerationValue>
+                        <enumerationValue key="_51">3</enumerationValue>
+                        <enumerationValue key="_52">4</enumerationValue>
+                        <enumerationValue key="_53">5</enumerationValue>
+                        <enumerationValue key="_54">6</enumerationValue>
+                        <enumerationValue key="_55">7</enumerationValue>
+                        <enumerationValue key="_56">8</enumerationValue>
+                        <enumerationValue key="_57">9</enumerationValue>
+                        <enumerationValue key="_65">A</enumerationValue>
+                        <enumerationValue key="_66">B</enumerationValue>
+                        <enumerationValue key="_67">C</enumerationValue>
+                        <enumerationValue key="_68">D</enumerationValue>
+                        <enumerationValue key="_69">E</enumerationValue>
+                        <enumerationValue key="_70">F</enumerationValue>
+                        <enumerationValue key="_71">G</enumerationValue>
+                        <enumerationValue key="_72">H</enumerationValue>
+                        <enumerationValue key="_73">I</enumerationValue>
+                        <enumerationValue key="_74">J</enumerationValue>
+                        <enumerationValue key="_75">K</enumerationValue>
+                        <enumerationValue key="_76">L</enumerationValue>
+                        <enumerationValue key="_77">M</enumerationValue>
+                        <enumerationValue key="_78">N</enumerationValue>
+                        <enumerationValue key="_79">O</enumerationValue>
+                        <enumerationValue key="_80">P</enumerationValue>
+                        <enumerationValue key="_81">Q</enumerationValue>
+                        <enumerationValue key="_82">R</enumerationValue>
+                        <enumerationValue key="_83">S</enumerationValue>
+                        <enumerationValue key="_84">T</enumerationValue>
+                        <enumerationValue key="_85">U</enumerationValue>
+                        <enumerationValue key="_86">V</enumerationValue>
+                        <enumerationValue key="_87">W</enumerationValue>
+                        <enumerationValue key="_88">X</enumerationValue>
+                        <enumerationValue key="_89">Y</enumerationValue>
+                        <enumerationValue key="_90">Z</enumerationValue>
+                        <enumerationValue key="_27">ESCAPE</enumerationValue>
+                        <enumerationValue key="_9">TAB</enumerationValue>
+                        <enumerationValue key="_13">ENTER</enumerationValue>
+                        <enumerationValue key="_32">SPACE</enumerationValue>
+                        <enumerationValue key="_33">PAGE UP</enumerationValue>
+                        <enumerationValue key="_34">PAGE DOWN</enumerationValue>
+                        <enumerationValue key="_35">END</enumerationValue>
+                        <enumerationValue key="_36">HOME</enumerationValue>
+                        <enumerationValue key="_45">INSERT</enumerationValue>
+                        <enumerationValue key="_46">DELETE</enumerationValue>
+                        <enumerationValue key="_8">BACKSPACE</enumerationValue>
+                        <enumerationValue key="_37">LEFT ARROW</enumerationValue>
+                        <enumerationValue key="_38">UP ARROW</enumerationValue>
+                        <enumerationValue key="_39">RIGHT ARROW</enumerationValue>
+                        <enumerationValue key="_40">DOWN ARROW</enumerationValue>
+                        <enumerationValue key="_91">LEFT WINDOW</enumerationValue>
+                        <enumerationValue key="_93">RIGHT WINDOW</enumerationValue>
+                        <enumerationValue key="_96">NUMPAD 0</enumerationValue>
+                        <enumerationValue key="_97">NUMPAD 1</enumerationValue>
+                        <enumerationValue key="_98">NUMPAD 2</enumerationValue>
+                        <enumerationValue key="_99">NUMPAD 3</enumerationValue>
+                        <enumerationValue key="_100">NUMPAD 4</enumerationValue>
+                        <enumerationValue key="_101">NUMPAD 5</enumerationValue>
+                        <enumerationValue key="_102">NUMPAD 6</enumerationValue>
+                        <enumerationValue key="_103">NUMPAD 7</enumerationValue>
+                        <enumerationValue key="_104">NUMPAD 8</enumerationValue>
+                        <enumerationValue key="_105">NUMPAD 9</enumerationValue>
+                        <enumerationValue key="_106">NUMPAD MULTIPLY</enumerationValue>
+                        <enumerationValue key="_107">NUMPAD PLUS</enumerationValue>
+                        <enumerationValue key="_109">NUMPAD MINUS</enumerationValue>
+                        <enumerationValue key="_110">NUMPAD PERIOD</enumerationValue>
+                        <enumerationValue key="_111">NUMPAD DIVIDE</enumerationValue>
+                        <enumerationValue key="_112">F1</enumerationValue>
+                        <enumerationValue key="_113">F2</enumerationValue>
+                        <enumerationValue key="_114">F3</enumerationValue>
+                        <enumerationValue key="_115">F4</enumerationValue>
+                        <enumerationValue key="_116">F5</enumerationValue>
+                        <enumerationValue key="_117">F6</enumerationValue>
+                        <enumerationValue key="_118">F7</enumerationValue>
+                        <enumerationValue key="_119">F8</enumerationValue>
+                        <enumerationValue key="_120">F9</enumerationValue>
+                        <enumerationValue key="_121">F10</enumerationValue>
+                        <enumerationValue key="_122">F11</enumerationValue>
+                        <enumerationValue key="_123">F12</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="actionType" type="enumeration" required="true" defaultValue="MICROFLOW">
+                    <caption>Action Type</caption>
+                    <category>Action</category>
+                    <description>Select the type of action for the Hotkey.</description>
+                    <enumerationValues>
+                        <enumerationValue key="MICROFLOW">(1 )Trigger microflow</enumerationValue>
+                        <enumerationValue key="MENDIX">(2) Mendix action</enumerationValue>
+                        <enumerationValue key="CLICK">(3) Click element</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="microflow" type="microflow" required="false">
+                    <caption>Microflow</caption>
+                    <category>(1) Microflow</category>
+                    <description>Required if action type is "Trigger microflow".
+
+                        Select the microflow to be triggered.</description>
+                    <returnType type="Void" />
+                </property>
+                <property key="mendixAction" type="enumeration" required="true" defaultValue="REFRESH">
+                    <caption>Action</caption>
+                    <category>(2) Mendix Action</category>
+                    <description>Required if action type is "Mendix action".</description>
+                    <enumerationValues>
+                        <enumerationValue key="REFRESH">Refresh form in content</enumerationValue>
+                        <enumerationValue key="BACK">Jump back in history</enumerationValue>
+                        <enumerationValue key="FORWARD">Jump forward in history</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="elementSelector" type="translatableString" required="false" multiline="true">
+                    <caption>Element Selector</caption>
+                    <category>(3) Click Element</category>
+                    <description>Define a selector for the element here.
+
+                        Set the jQuery selector for the target element here (http://api.jquery.com/category/selectors/). 
+                        If multiple elements are found, the hotkey is not triggered. You can use all standard jQuery selectors here. Additionally you have containsExact, containsExactCase and containsRegex (https://gist.github.com/Mottie/461488). The search is always performed in the current context.
+                        Some examples:
+                        1) DataGrid search button: .mendixDataGrid_controlButton:has(span:containsExact(Search))
+                        2) Save button: .mendix_Button:has(span:containsExact(Save))
+                        
+                        Update (15/04/14):
+                        The selector now needs to be a JSON object. In addition to the selector you can now also search in the widget library.
+                        Example:
+                        {
+                        "widgetFilter": {
+                        "declaredClass": "mxui.widget.TextInput",
+                        "attributePath": "Administration.Account/FullName"
+                        },
+                        "selector": "input"
+                        }
+                        The names of widgetFilter and selector can not be changed.
+                        Within the widgetFilter you can use all attributes of the widgets.
+                    </description>
+                </property>
+            </properties>
+        </property>
+    </properties>
+</widget>
