@@ -17,7 +17,6 @@
  ========================
  The Hotkey Widget allows to define hotkeys (i.e. keyboard shortcuts) for your application.
  This is the local widget which allows you to define form specific hotkeys.
-
  */
 
 define([
@@ -73,29 +72,29 @@ define([
             }
 
             // trigger reload of local hotkey list
-            dojo.publish("hotkey/add", [this.id]);
+            topic.publish("hotkey/add", this.id);
             // widget rendering finished
             this.actLoaded();
         },
         suspend: function () {
             "use strict";
             // trigger refresh of local hotkey list
-            dojo.publish("hotkey/remove", [this.id]);
+            topic.publish("hotkey/remove", this.id);
         },
         resume: function () {
             "use strict";
             // trigger refresh of local hotkey list
-            dojo.publish("hotkey/add", [this.id]);
+            topic.publish("hotkey/add", this.id);
         },
         uninitialize: function () {
             "use strict";
             // always unload local widgets
             // trigger reload of local hotkey list
-            dojo.publish("hotkey/remove", [this.id]);
+            topic.publish("hotkey/remove", this.id);
         }
     });
 });
 require(['Hotkey/widget/HotkeyLocal'], function () {
     'use strict';
 });
-        
+     
