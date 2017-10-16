@@ -22,7 +22,7 @@
 
 define([
     'dojo/_base/declare', 'mxui/widget/_WidgetBase', 'dojo/topic'
-], function (declare, _WidgetBase) {
+], function (declare, _WidgetBase, topic) {
     'use strict';
 
     // Declare widget's prototype.
@@ -73,7 +73,7 @@ define([
             }
 
             // trigger reload of local hotkey list
-            dojo.publish("hotkey/add", [this.id]);
+            topic.publish("hotkey/add", this.id);
 
             // widget rendering finished
             this.actLoaded();
@@ -81,18 +81,18 @@ define([
         suspend: function () {
             "use strict";
             // trigger refresh of local hotkey list
-            dojo.publish("hotkey/remove", [this.id]);
+            topic.publish("hotkey/remove", this.id);
         },
         resume: function () {
             "use strict";
             // trigger refresh of local hotkey list
-            dojo.publish("hotkey/add", [this.id]);
+            topic.publish("hotkey/add", this.id);
         },
         uninitialize: function () {
             "use strict";
             // always unload local widgets
             // trigger reload of local hotkey list
-            dojo.publish("hotkey/remove", [this.id]);
+            topic.publish("hotkey/remove", this.id);
         }
     });
 });

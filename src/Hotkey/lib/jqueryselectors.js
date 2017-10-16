@@ -4,8 +4,8 @@
  *  :containsExactCase() - case sensitive
  *  :containsRegex()     - set by user ( use: $(el).find(':containsRegex("/(red|blue|yellow)/gi")') )
  */
-dojo.provide("Hotkey.widget.jqueryselectors");
-$.extend( $.expr[":"], {
+define([], function() {
+	return $.extend( $.expr[":"], {
 	containsExact: $.expr.createPseudo ?
 		$.expr.createPseudo(function(text) {
 			return function(elem) {
@@ -41,4 +41,5 @@ $.extend( $.expr[":"], {
 			return reg ? RegExp(reg[1], reg[2]).test($.trim(elem.innerHTML)) : false;
 		}
 
+	});
 });

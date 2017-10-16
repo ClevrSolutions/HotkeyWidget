@@ -28,9 +28,9 @@
 // Required module list. Remove unnecessary modules, you can always get them back from the boilerplate.
 define([
     'dojo/_base/declare', 'mxui/widget/_WidgetBase',
-    'mxui/dom', 'dojo/dom', 'dojo/query', 'dojo/dom-style', 'dojo/dom-construct', 'dojo/_base/array', 'dojo/_base/lang', 'dijit/_base/manager',
-    'Hotkey/lib/jquery-1.11.2', 'Hotkey/lib/jqueryselectors', 'Hotkey/lib/syn'
-], function (declare, _WidgetBase, dom, dojoDom, domQuery, domStyle, domConstruct, dojoArray, lang, dijit, _jQuery, _selectors, _syn) {
+    'mxui/dom', 'dojo/dom', 'dojo/query', 'dojo/dom-style', 'dojo/dom-construct', 'dojo/_base/array', 'dojo/_base/lang', 'dijit/_base/manager', 'dijit/WidgetSet',
+    'Hotkey/lib/jquery-1.11.2', 'Hotkey/lib/jqueryselectors', 'Hotkey/lib/syn', "dojo/topic", "dijit/registry"
+], function (declare, _WidgetBase, dom, dojoDom, domQuery, domStyle, domConstruct, dojoArray, lang, dijit, WidgetSet, _jQuery, _selectors, _syn, topic, registry) {
     'use strict';
 
     var $ = _jQuery.noConflict(true);
@@ -56,7 +56,7 @@ define([
         hotkeyList: null,
         hackNativeDialogShortcut: false,
         // local variables
-        localWidgets: new dijit.WidgetSet(),
+        localWidgets: new WidgetSet(),
         hotkeyDocNodes: [],
         currentContext: null,
         _underlayWidgetClasses: ["mxui.widget.Underlay", "dijit.DialogUnderlay"],
@@ -168,7 +168,7 @@ define([
                 });
 
                 // refresh hotkey doc nodes
-                if (this.showHotkeyList) {
+                if (this.showHotkeyList && this.localWidgets) {
                     // refresh documentation
                     this._refreshHotkeyDocNodes();
                 }
@@ -367,7 +367,9 @@ define([
         _addLocalWidget: function (widget) {
             "use strict";
             //console.log("add local hotkey widget: " + widget);
-            this.localWidgets.add(dijit.byId(widget));
+            if (this.localWidgets) {
+                this.localWidgets.add(dijit.byId(widget));
+            }
             //console.log("local widgets: " + this.localWidgets.length);
             // refresh
             this._refreshHotkeyDocNodes();
@@ -606,7 +608,7 @@ define([
         // returns site context dom node
         _getCurrentContext: function (event) {
             "use strict";
-            var eventTarget = domQuery(event.target || event.srcElement),
+            var eventTarget = domQuery(event.target || event.srcElement)[0],
                     underlays,
                     underlayZIndex,
                     match,
@@ -643,7 +645,7 @@ define([
             } else {
                 // 2) get context based on target element of event
                 // get closest parent window/dialog or content element
-                foundContext = eventTarget.closest(this._contextClassesString)[0];
+                foundContext = eventTarget.closest(this._contextClassesString);
 
                 if (foundContext) {
                     return foundContext;
